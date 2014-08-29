@@ -1,0 +1,61 @@
+<div id="toolbar" class="ui-widget-content ui-corner-all" style="position:absolute;background-color:#bbb">
+	
+	<!------------
+		Controls
+	  ------------!>
+	<div id="controls">
+		<span id="header"></span>
+		<div style="height:5px"></div>
+
+		<div style="margin:5px 0 5px 0">
+		<button id="save">Save</button>
+		<button id="import_nii">Import</button>
+		<a id="download_nii">Download</a>
+		</div>
+
+		<div id="plane" style="margin:10px 0 5px 0">						
+			<label>Stereotaxic plane</label><br/>
+			<input type="radio" name="radio" id="sagittal" checked="checked"><label for="sagittal">Sagittal</label>
+			<input type="radio" name="radio" id="coronal"><label for="coronal">Coronal</label>
+			<input type="radio" name="radio" id="axial"><label for="axial">Axial</label>
+		</div>
+
+		<div style="margin:10px 0 5px 0">
+		<label>Tool</label><br/>
+		<span id="tool">						
+			<input type="radio" name="tool" id="paint" checked="checked"><label for="paint">Paint</label>
+			<input type="radio" name="tool" id="erase"><label for="erase">Erase</label>
+		</span>
+		<input type="checkbox" id="fill"><label for="fill">Fill</label>
+		</div>
+
+		<div id="penSize" style="margin:10px 0 5px 0">						
+			<label>Pen size</label><br/>
+			<input type="radio" name="penSize" id="1" checked="checked"><label for="1">1</label>
+			<input type="radio" name="penSize" id="2"><label for="2">2</label>
+			<input type="radio" name="penSize" id="3"><label for="3">3</label>
+			<input type="radio" name="penSize" id="5"><label for="5">5</label>
+			<input type="radio" name="penSize" id="10"><label for="10">10</label>
+			<input type="radio" name="penSize" id="15"><label for="15">15</label>
+		</div>
+
+		<div id="slider" style="width:auto;margin:10px 0 5px 0" oninput="javascript:changeSlice()"></div>
+
+		<button id="prevSlice">-</button>
+		<button id="nextSlice">+</button>
+		<span id="slice"></span></br>
+		<div style="height:5px"></div>
+	</div>
+	
+	<!--------
+		Chat
+	  --------!>
+	<label id="chat">Chat (not connected)</label>
+	<div id="log" style="width:auto;margin:0 0;height:50px;border:1px solid #777;overflow:auto;background-color:lightGrey"></div>
+	<input id="msg" style="width:100%;border:1px solid black;" type="text" onkeypress="onkey(event)">
+	
+</div>
+
+<div id="resizable" style="width:100%">
+	<canvas id="canvas" style="width:100%;height:100%"></canvas>
+</div>

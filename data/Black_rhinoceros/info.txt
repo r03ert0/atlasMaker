@@ -1,0 +1,20 @@
+{
+    "name":"Black_rhinoceros",
+    "description": {
+        "commonName": "Black Rhinoceros",
+        "scientificName": "Diceros Bicornis",
+        "description": "<p>\u00a0native \u00a0reintroduced \u00a0introduced \u00a0possibly extinct \u00a0extinct<\/p><p>The <b>black rhinoceros<\/b> or <b>hook-lipped rhinoceros<\/b> (<i>Diceros bicornis<\/i>) is a species of rhinoceros, native to eastern and central Africa including Kenya, Tanzania, Cameroon, South Africa, Namibia, Zimbabwe, and Angola. Although the rhinoceros is referred to as <i>black<\/i>, its colors vary from brown to gray.<\/p><p>The other African rhinoceros is the white rhinoceros (<i>Ceratotherium simum<\/i>). The word \"white\" in the name \"white rhinoceros\" is a misinterpretation of the Afrikaans word <i>wyd<\/i>, itself derived from the Dutch word <i>wijd<\/i> for wide, referring to its square upper lip, as opposed to the pointed or hooked lip of the black rhinoceros. These species are now sometimes referred to as the square-lipped (for white) or hook-lipped (for black) rhinoceros.<\/p>",
+        "acknowledgements": "Marc Herbin, curator of the Vertebrate Brain Collection of the Jardin de Plantes, Paris&nbsp;-&nbsp;France.<br>Mathieu Santin, Institut du Cerveau et de la Moelle, CENIR, UMR-S975, Inserm U975, CNRS UMR7225, Paris&nbsp;-&nbsp;France<br>",
+        "lastUpdated": "last updated: 13 April 2014"
+    },
+    "picture": {
+        "file": "picture.jpg",
+        "name": "Black Rhinoceros (Diceros Bicornis)",
+        "width": 200,
+        "height": 200
+    },
+    "mri": {
+        "brain":"MRI-n4.nii.gz",
+        "atlas":"Atlas.nii.gz"
+    }
+}
