@@ -35,7 +35,8 @@ td {
 }
 </style>
 </head>
-<body>	
+<body ontouchmove="BlockMove(event);"> <!-- block move on tablets -->
+<script>function BlockMove(e){e.preventDefault()}</script>
 
 <script src="http://localhost/atlasMaker/js/load-atlasMaker.js?id=1&url=http://localhost/atlasMaker/data/Black_rhinoceros/info.txt" async></script>
 

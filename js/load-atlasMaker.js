@@ -30,6 +30,7 @@ function loadDependencies()
 	var	dependencies=[	"js/lib/jquery-1.11.0.min.js",
 						"js/lib/jquery-ui.js",
 						"js/lib/jquery-ui.css",
+						"js/lib/jquery.ui.touch-punch.min.js",
 						"js/lib/pako/pako.min.js",
 						"mylogin/login.js"];
 

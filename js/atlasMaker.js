@@ -378,11 +378,46 @@ function drawAtlasImage()
 }
 function mousedown(e) {
 	e.preventDefault();
-	
-	var canvas = document.getElementById('atlasMaker-canvas');
 	var r = e.target.getBoundingClientRect();
 	var x=parseInt(((e.clientX-r.left) / e.target.clientWidth )*brain_W);
 	var y=parseInt(((e.clientY-r.top) / e.target.clientHeight )*brain_H);
+	
+	down(x,y);
+}
+function mousemove(e) {
+	e.preventDefault();
+	var r = e.target.getBoundingClientRect();
+	var x=parseInt(((e.clientX-r.left) / e.target.clientWidth )*brain_W);
+	var y=parseInt(((e.clientY-r.top) / e.target.clientHeight )*brain_H);
+	
+	move(x,y);
+}
+function mouseup(e) {
+	up(e);
+}
+function touchstart(e) {
+	e.preventDefault();
+	var r = e.target.getBoundingClientRect();
+	var	touchEvent=e.changedTouches[0];
+	var x=parseInt(((touchEvent.pageX-r.left) / e.target.clientWidth )*brain_W);
+	var y=parseInt(((touchEvent.pageY-r.top) / e.target.clientHeight )*brain_H);
+	
+	down(x,y);
+}
+function touchmove(e) {
+	e.preventDefault();
+	var r = e.target.getBoundingClientRect();
+	var	touchEvent=e.changedTouches[0];
+	var x=parseInt(((touchEvent.pageX-r.left) / e.target.clientWidth )*brain_W);
+	var y=parseInt(((touchEvent.pageY-r.top) / e.target.clientHeight )*brain_H);
+	
+	move(x,y);
+}
+function touchend(e) {
+	up(e);
+}
+function down(x,y) {
+	var canvas = document.getElementById('atlasMaker-canvas');
 	var z=User.slice;
 
 	if(User.doFill)
@@ -403,13 +438,8 @@ function mousedown(e) {
 			paintxy(-1,'me',x,y,User);
 	}
 }
-function mousemove(e) {
-	e.preventDefault();
-
+function move(x,y) {
 	var canvas = document.getElementById('atlasMaker-canvas');
-	var r = e.target.getBoundingClientRect();
-	var x=parseInt(((e.clientX-r.left) / e.target.clientWidth )*brain_W);
-	var y=parseInt(((e.clientY-r.top) / e.target.clientHeight )*brain_H);
 	var z=User.slice;
 
 	if(!User.mouseIsDown)
@@ -420,7 +450,7 @@ function mousemove(e) {
 	if(User.tool=='erase')
 		paintxy(-1,'le',x,y,User);
 }
-function mouseup(e) {
+function up(e) {
 	User.mouseIsDown = false;
 	User.x0=-1;
 	sendUserDataMessage();
@@ -785,9 +815,15 @@ function initAtlasMaker()
 	canvas = document.getElementById('canvas');
 	context = canvas.getContext('2d');
 
+	// for desktop computers
 	canvas.onmousedown = mousedown;
-	canvas.onmouseup = mouseup;
 	canvas.onmousemove = mousemove;
+	canvas.onmouseup = mouseup;
+	
+	// for tablets
+	canvas.addEventListener("touchstart",touchstart,false);
+	canvas.addEventListener("touchmove",touchmove,false);
+	canvas.addEventListener("touchend",touchend,false);
 
 	$(window).resize(function() {
 		resizeWindow();
